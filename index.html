@@ -1,98 +1,48 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Elena - Savage Mode</title>
+  <meta charset="UTF-8">
+  <title>Google</title>
   <style>
-    @font-face {
-      font-family: "MadeByBears";
-      src: url("Made by Bears DEMO.ttf") format("truetype");
-    }
-
     body {
-      background: black;
-      margin: 0;
-      height: 100vh;
+      background: #fff;
       display: flex;
-      justify-content: center;
+      flex-direction: column;
       align-items: center;
-      overflow: hidden;
-      animation: screenShake 20s ease-in-out 10s forwards;
+      justify-content: center;
+      height: 100vh;
+      font-family: Arial, sans-serif;
     }
-
-    .elena {
-      font-family: "MadeByBears", sans-serif;
-      font-size: 120px;
-      color: black;
-      -webkit-text-stroke: 2px white;
-      letter-spacing: 5px;
-      text-shadow: 0 0 5px white, 0 0 10px white, 0 0 15px white;
-      animation: glitchMeltdown 30s linear forwards;
+    input[type="text"] {
+      width: 500px;
+      font-size: 20px;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      outline: none;
     }
-
-    @keyframes glitchMeltdown {
-      0%, 10% {
-        opacity: 1;
-        text-shadow: 0 0 3px white, 0 0 6px white;
-        filter: none;
-        transform: none;
-        clip-path: inset(0);
-      }
-
-      20%, 30%, 40% {
-        opacity: 0.6;
-        text-shadow: 0 0 10px white, 0 0 20px white;
-      }
-
-      /* 50%–90%: Flashing & glitching */
-      50%, 52%, 54%, 56%, 58%, 60%, 62%, 64%, 66%, 68%, 70%, 72%, 74%, 76%, 78%, 80%, 82%, 84%, 86%, 88%, 90% {
-        opacity: 0;
-        text-shadow: 0 0 300px white;
-        filter: hue-rotate(30deg) contrast(250%);
-        clip-path: inset(10% 0 5% 0);
-        transform: translateX(3px);
-      }
-
-      51%, 53%, 55%, 57%, 59%, 61%, 63%, 65%, 67%, 69%, 71%, 73%, 75%, 77%, 79%, 81%, 83%, 85%, 87%, 89% {
-        opacity: 1;
-        text-shadow: 0 0 600px white;
-        filter: hue-rotate(-30deg) contrast(300%);
-        clip-path: inset(0 10% 10% 0);
-        transform: translateX(-3px);
-      }
-
-      100% {
-        opacity: 1;
-        text-shadow: 0 0 5px white, 0 0 10px white;
-        filter: none;
-        transform: none;
-        clip-path: inset(0);
-      }
-    }
-
-    @keyframes screenShake {
-      0% { transform: translate(0, 0); }
-      2% { transform: translate(2px, -2px); }
-      4% { transform: translate(-3px, 3px); }
-      6% { transform: translate(4px, -1px); }
-      8% { transform: translate(-2px, 2px); }
-      10% { transform: translate(3px, -3px); }
-      100% { transform: translate(0, 0); }
+    input[type="submit"] {
+      margin-top: 20px;
+      padding: 10px 20px;
+      font-size: 16px;
+      cursor: pointer;
     }
   </style>
 </head>
 <body>
-  <audio id="glitchAudio" src="glitch.mp3"></audio>
-  <div class="elena">Elena</div>
+  <img src="https://www.google.com/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png" width="272" />
+  <form id="searchForm">
+    <input type="text" id="query" placeholder="Search Google or type a URL" />
+    <input type="submit" value="Search" />
+  </form>
 
   <script>
-    // Delay audio start to match glitch phase
-    setTimeout(() => {
-      const audio = document.getElementById('glitchAudio');
-      audio.volume = 0.8;
-      audio.play();
-    }, 10000); // starts at 10s
+    document.getElementById('searchForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      const query = document.getElementById('query').value;
+      // Try DuckDuckGo or Startpage if Google is blocked
+      window.location.href = `https://www.duckduckgo.com/?q=${encodeURIComponent(query)}`;
+    });
   </script>
 </body>
 </html>
