@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>ELENA FINAL PHASE</title>
+  <title>ELENA FINAL BOSS MODE</title>
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@800&display=swap');
 
@@ -29,6 +29,7 @@
       color: white;
       text-shadow: 0 0 10px #0ff, 0 0 20px #0ff;
       animation: float 4s ease-in-out infinite;
+      z-index: 2;
     }
 
     .glitch::before,
@@ -76,45 +77,75 @@
       100% { clip: rect(0, 9999px, 0, 0); }
     }
 
-    /* FINAL PHASE CHAOS MODE */
-
     .final {
-      animation: shake 0.15s infinite;
       color: black !important;
-      text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 20px #fff;
+      text-shadow: 0 0 5px #fff, 0 0 20px #fff, 0 0 40px #fff;
       border: 3px solid white;
       padding: 20px;
       border-radius: 20px;
-      transition: all 0.3s ease;
+      animation: finalFlash 0.05s infinite alternate, finalZoom 3s ease forwards;
+      position: relative;
+    }
+
+    @keyframes finalFlash {
+      0% { opacity: 1; filter: brightness(1); }
+      100% { opacity: 0.6; filter: brightness(3); }
+    }
+
+    @keyframes finalZoom {
+      0% { transform: scale(1); }
+      30% { transform: scale(1.5) rotate(2deg); }
+      60% { transform: scale(1.8) rotate(-3deg); }
+      100% { transform: scale(2.2) rotate(0deg); }
+    }
+
+    @keyframes finalAura {
+      0% { box-shadow: 0 0 20px 5px #fff; }
+      50% { box-shadow: 0 0 60px 20px #0ff; }
+      100% { box-shadow: 0 0 30px 10px #f0f; }
+    }
+
+    .aura {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      z-index: 1;
+      filter: blur(50px);
+      animation: finalAura 1s infinite alternate;
+      background: radial-gradient(circle, #fff 10%, transparent 80%);
+      border-radius: 50%;
+    }
+
+    .screen-shake {
+      animation: shake 0.08s infinite;
     }
 
     @keyframes shake {
-      0% { transform: translate(2px, -2px) rotate(1deg); }
-      25% { transform: translate(-3px, 3px) rotate(-1deg); }
-      50% { transform: translate(3px, -1px) rotate(1deg); }
-      75% { transform: translate(-1px, 2px) rotate(-1deg); }
-      100% { transform: translate(1px, -3px) rotate(1deg); }
-    }
-
-    /* TRANSITION PHASE */
-    @keyframes transitionToFinal {
-      0% { transform: scale(1); filter: blur(0); }
-      50% { transform: scale(1.2) rotate(5deg); filter: blur(2px); }
-      100% { transform: scale(1); filter: blur(0); }
+      0% { transform: translate(1px, -1px); }
+      25% { transform: translate(-2px, 2px); }
+      50% { transform: translate(3px, -3px); }
+      75% { transform: translate(-1px, 1px); }
+      100% { transform: translate(2px, -2px); }
     }
   </style>
 </head>
-<body>
+<body id="screen">
 
+  <div class="aura" id="aura" style="display: none;"></div>
   <div id="elena" class="glitch">ELENA</div>
 
   <script>
     setTimeout(() => {
       const elena = document.getElementById('elena');
+      const screen = document.getElementById('screen');
+      const aura = document.getElementById('aura');
+
+      // Activate FINAL PHASE
       elena.classList.remove('glitch');
       elena.classList.add('final');
-      elena.style.animation = 'transitionToFinal 1s ease';
-    }, 6000); // switch to final form after 6 seconds
+      aura.style.display = 'block';
+      screen.classList.add('screen-shake');
+    }, 6000); // activate after 6 sec
   </script>
 
 </body>
