@@ -1,158 +1,34 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>ELENA - RAINBOW FINAL FORM</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Elena</title>
   <style>
-    @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@800&display=swap');
-
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
+    @font-face {
+      font-family: "MadeByBears";
+      src: url("fonts/made_by_bears.ttf") format("truetype");
     }
 
     body {
+      background: black;
+      margin: 0;
       height: 100vh;
-      background: black;
-      overflow: hidden;
       display: flex;
-      justify-content: center;
       align-items: center;
-      font-family: 'Orbitron', sans-serif;
+      justify-content: center;
     }
 
-    .glitch {
-      font-size: 10vw;
-      position: relative;
-      color: white;
-      text-shadow: 0 0 10px #0ff, 0 0 20px #0ff;
-      animation: float 4s ease-in-out infinite;
-    }
-
-    .glitch::before,
-    .glitch::after {
-      content: "ELENA";
-      position: absolute;
-      left: 0;
-      top: 0;
-      width: 100%;
-      color: white;
-      background: black;
-      clip: rect(0, 900px, 0, 0);
-    }
-
-    .glitch::before {
-      left: 2px;
-      text-shadow: -2px 0 red;
-      animation: glitchTop 2s infinite linear alternate-reverse;
-    }
-
-    .glitch::after {
-      left: -2px;
-      text-shadow: -2px 0 cyan;
-      animation: glitchBottom 2s infinite linear alternate-reverse;
-    }
-
-    @keyframes float {
-      0%, 100% { transform: translateY(0); }
-      50% { transform: translateY(-10px); }
-    }
-
-    @keyframes glitchTop {
-      0% { clip: rect(0, 9999px, 0, 0); }
-      10% { clip: rect(10px, 9999px, 50px, 0); }
-      20% { clip: rect(85px, 9999px, 90px, 0); }
-      30% { clip: rect(50px, 9999px, 55px, 0); }
-      100% { clip: rect(0, 9999px, 0, 0); }
-    }
-
-    @keyframes glitchBottom {
-      0% { clip: rect(0, 9999px, 0, 0); }
-      10% { clip: rect(60px, 9999px, 100px, 0); }
-      20% { clip: rect(20px, 9999px, 40px, 0); }
-      30% { clip: rect(70px, 9999px, 80px, 0); }
-      100% { clip: rect(0, 9999px, 0, 0); }
-    }
-
-    .final {
-      display: flex;
-      gap: 15px;
-      font-size: 12vw;
+    .elena {
+      font-family: "MadeByBears", sans-serif;
+      font-size: 100px;
       color: black;
-      text-shadow: 0 0 10px white;
-      border: 5px solid white;
-      padding: 30px;
-      border-radius: 20px;
-      position: relative;
-      z-index: 10;
-      animation: glitchViolent 0.1s infinite, zoomCycle 0.3s infinite ease-in-out;
-    }
-
-    .final span {
-      animation: colorFlash 0.2s infinite;
-    }
-
-    @keyframes glitchViolent {
-      0% { transform: translate(-4px, 3px) rotate(1deg); }
-      25% { transform: translate(3px, -4px) rotate(-1deg); }
-      50% { transform: translate(-2px, 2px) rotate(1deg); }
-      75% { transform: translate(4px, -3px) rotate(-1deg); }
-      100% { transform: translate(1px, 4px) rotate(1deg); }
-    }
-
-    @keyframes zoomCycle {
-      0%   { transform: scale(1); }
-      50%  { transform: scale(1.4); }
-      100% { transform: scale(1); }
-    }
-
-    @keyframes colorFlash {
-      0%   { color: red; text-shadow: 0 0 5px red; }
-      25%  { color: #00f7ff; text-shadow: 0 0 10px #00f7ff; }
-      50%  { color: lime; text-shadow: 0 0 10px lime; }
-      75%  { color: yellow; text-shadow: 0 0 10px yellow; }
-      100% { color: magenta; text-shadow: 0 0 10px magenta; }
-    }
-
-    .aura {
-      position: absolute;
-      width: 800px;
-      height: 800px;
-      background: radial-gradient(circle, rgba(255,255,255,0.1), transparent 70%);
-      animation: spin 4s linear infinite;
-      border-radius: 50%;
-      z-index: 1;
-    }
-
-    @keyframes spin {
-      from { transform: rotate(0deg); }
-      to { transform: rotate(360deg); }
+      -webkit-text-stroke: 2px white;
+      text-shadow: 0 0 15px white;
     }
   </style>
 </head>
 <body>
-
-  <div class="aura"></div>
-  <div id="elena" class="glitch">ELENA</div>
-
-  <script>
-    setTimeout(() => {
-      const elena = document.getElementById('elena');
-      elena.classList.remove('glitch');
-      elena.innerHTML = '';
-      elena.classList.add('final');
-
-      const letters = ['E', 'L', 'E', 'N', 'A'];
-      letters.forEach(letter => {
-        const span = document.createElement('span');
-        span.textContent = letter;
-        elena.appendChild(span);
-      });
-
-    }, 6000); // Activate final form after 6 seconds
-  </script>
-
+  <div class="elena">Elena</div>
 </body>
 </html>
