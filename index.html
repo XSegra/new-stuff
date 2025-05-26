@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Elena - Final Phase</title>
+  <title>Elena - Final Meltdown</title>
   <style>
     @font-face {
       font-family: "MadeByBears";
@@ -27,109 +27,56 @@
       -webkit-text-stroke: 2px white;
       text-shadow: 0 0 5px white, 0 0 10px white, 0 0 15px white;
       letter-spacing: 5px;
-      animation: hauntedExplosion 20s ease-in-out forwards;
+      animation: fullMeltdown 25s ease-in-out forwards;
     }
 
-    @keyframes hauntedExplosion {
-      /* 0s–5s: soft flicker */
-      0% {
+    @keyframes fullMeltdown {
+      /* Calm to buildup: 0–13s */
+      0%, 10% {
         opacity: 1;
         text-shadow: 0 0 3px white, 0 0 6px white;
       }
-      10% {
-        opacity: 0.8;
-        text-shadow: 0 0 2px white, 0 0 4px white;
-      }
       20% {
-        opacity: 1;
-        text-shadow: 0 0 5px white, 0 0 10px white;
-      }
-
-      /* 5s–10s: faster flicker */
-      25% {
-        opacity: 0.6;
-        text-shadow: 0 0 3px white;
+        opacity: 0.7;
+        text-shadow: 0 0 2px white;
       }
       30% {
         opacity: 1;
-        text-shadow: 0 0 8px white, 0 0 12px white;
-      }
-      35% {
-        opacity: 0.5;
-        text-shadow: 0 0 2px white;
+        text-shadow: 0 0 6px white, 0 0 12px white;
       }
       40% {
+        opacity: 0.6;
+        text-shadow: 0 0 3px white;
+      }
+      50% {
         opacity: 1;
         text-shadow: 0 0 10px white, 0 0 20px white;
       }
-
-      /* 10s–13s: chaotic flicker */
-      50% {
-        opacity: 0.4;
-        text-shadow: 0 0 15px white, 0 0 25px white;
-      }
-      55% {
-        opacity: 1;
-        text-shadow: 0 0 5px white;
-      }
       60% {
         opacity: 0.3;
-        text-shadow: 0 0 20px white, 0 0 35px white;
+        text-shadow: 0 0 15px white, 0 0 25px white;
       }
-
-      /* 13s–17s: flash intensifies */
       70% {
         opacity: 1;
-        text-shadow: 0 0 40px white, 0 0 80px white, 0 0 100px white;
-      }
-      75% {
-        opacity: 1;
-        text-shadow: 0 0 80px white, 0 0 120px white;
-      }
-      80% {
-        opacity: 1;
-        text-shadow: 0 0 120px white, 0 0 160px white;
+        text-shadow: 0 0 20px white, 0 0 40px white;
       }
 
-      /* 17s–19s: EPILEPTIC STROBE FLASHING */
-      85% {
+      /* ⚡ 15s–25s: 10 seconds of epileptic flashing */
+      72%, 73%, 74%, 75%, 76%, 77%, 78%, 79%,
+      80%, 81%, 82%, 83%, 84%, 85%, 86%, 87%, 88%, 89%,
+      90%, 91%, 92%, 93%, 94%, 95%, 96%, 97%, 98%, 99% {
         opacity: 0;
-        text-shadow: 0 0 250px white;
-      }
-      86% {
-        opacity: 1;
-        text-shadow: 0 0 300px white;
-      }
-      87% {
-        opacity: 0;
-        text-shadow: 0 0 250px white;
-      }
-      88% {
-        opacity: 1;
-        text-shadow: 0 0 350px white;
-      }
-      89% {
-        opacity: 0;
-        text-shadow: 0 0 300px white;
-      }
-      90% {
-        opacity: 1;
-        text-shadow: 0 0 400px white;
-      }
-      91% {
-        opacity: 0;
-        text-shadow: 0 0 200px white;
-      }
-      92% {
-        opacity: 1;
-        text-shadow: 0 0 500px white;
-      }
-      93% {
-        opacity: 0.3;
-        text-shadow: 0 0 200px white;
+        text-shadow: 0 0 300px white, 0 0 400px white;
       }
 
-      /* 20s: calm silence */
+      72.5%, 73.5%, 74.5%, 75.5%, 76.5%, 77.5%, 78.5%, 79.5%,
+      80.5%, 81.5%, 82.5%, 83.5%, 84.5%, 85.5%, 86.5%, 87.5%, 88.5%, 89.5%,
+      90.5%, 91.5%, 92.5%, 93.5%, 94.5%, 95.5%, 96.5%, 97.5%, 98.5%, 99.5% {
+        opacity: 1;
+        text-shadow: 0 0 500px white, 0 0 700px white;
+      }
+
+      /* Instant calm at 100% */
       100% {
         opacity: 1;
         text-shadow: 0 0 5px white, 0 0 10px white, 0 0 15px white;
