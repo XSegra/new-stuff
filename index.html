@@ -2,59 +2,64 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>My Website – Sign In</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>ELENA ✨</title>
   <style>
-    body {
-      background-color: #0f0f0f;
-      color: #fff;
-      font-family: Arial, sans-serif;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      height: 100vh;
+    * {
       margin: 0;
+      padding: 0;
+      box-sizing: border-box;
     }
+    body {
+      height: 100vh;
+      background: linear-gradient(270deg, #ff0080, #7928ca, #2afadf, #00ff87, #ffcc70);
+      background-size: 1000% 1000%;
+      animation: backgroundFlow 15s ease infinite;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      overflow: hidden;
+    }
+
     h1 {
-      font-size: 2.5rem;
-      margin-bottom: 20px;
-    }
-    form {
-      background-color: #1a1a1a;
-      padding: 30px;
-      border-radius: 10px;
-      box-shadow: 0 0 10px #222;
-      width: 300px;
-    }
-    input[type="text"],
-    input[type="password"] {
-      width: 100%;
-      padding: 10px;
-      margin: 10px 0;
-      border: none;
-      border-radius: 5px;
-    }
-    input[type="submit"] {
-      width: 100%;
-      padding: 10px;
-      background-color: #4caf50;
+      font-size: 10vw;
+      font-family: 'Segoe UI', sans-serif;
+      font-weight: 900;
+      letter-spacing: 15px;
       color: white;
-      border: none;
-      border-radius: 5px;
-      cursor: pointer;
+      display: flex;
+      gap: 10px;
     }
-    input[type="submit"]:hover {
-      background-color: #45a049;
+
+    h1 span {
+      animation: colorShift 2s infinite alternate;
+      display: inline-block;
+    }
+
+    h1 span:nth-child(1) { animation-delay: 0s; }
+    h1 span:nth-child(2) { animation-delay: 0.3s; }
+    h1 span:nth-child(3) { animation-delay: 0.6s; }
+    h1 span:nth-child(4) { animation-delay: 0.9s; }
+    h1 span:nth-child(5) { animation-delay: 1.2s; }
+
+    @keyframes colorShift {
+      0%   { color: #ff0080; transform: scale(1); }
+      25%  { color: #2afadf; transform: scale(1.1); }
+      50%  { color: #00ff87; transform: scale(1); }
+      75%  { color: #ffcc70; transform: scale(1.1); }
+      100% { color: #7928ca; transform: scale(1); }
+    }
+
+    @keyframes backgroundFlow {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
     }
   </style>
 </head>
 <body>
-  <h1>Sign In</h1>
-  <form>
-    <input type="text" placeholder="Username" required />
-    <input type="password" placeholder="Password" required />
-    <input type="submit" value="Sign In" />
-  </form>
+  <h1>
+    <span>E</span><span>L</span><span>E</span><span>N</span><span>A</span>
+  </h1>
 </body>
 </html>
