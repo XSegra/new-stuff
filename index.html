@@ -23,18 +23,19 @@
     .elena {
       font-family: "MadeByBears", sans-serif;
       font-size: 120px;
-      color: transparent;
+      color: black;
       -webkit-text-stroke: 2px white;
       text-shadow:
+        0 0 5px white,
         0 0 10px white,
-        0 0 20px white,
-        0 0 30px white,
-        0 0 40px white;
+        0 0 15px white;
       letter-spacing: 5px;
+      animation: flicker 4s infinite ease-in-out;
     }
-  </style>
-</head>
-<body>
-  <div class="elena">Elena</div>
-</body>
-</html>
+
+    @keyframes flicker {
+      0%, 100% {
+        text-shadow:
+          0 0 5px white,
+          0 0 10px white,
+          0
