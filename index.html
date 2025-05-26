@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Elena</title>
+  <title>Elena - Phase 2</title>
   <style>
     @font-face {
       font-family: "MadeByBears";
@@ -30,33 +30,53 @@
         0 0 10px white,
         0 0 15px white;
       letter-spacing: 5px;
-      animation: flicker 4s infinite ease-in-out;
+      animation: hauntedFlicker 7s ease-in-out forwards;
     }
 
-    @keyframes flicker {
-      0%, 100% {
-        text-shadow:
-          0 0 5px white,
-          0 0 10px white,
-          0 0 15px white;
+    @keyframes hauntedFlicker {
+      0% {
+        text-shadow: 0 0 3px white, 0 0 6px white, 0 0 9px white;
+        opacity: 1;
+      }
+      10% {
+        text-shadow: 0 0 1px white, 0 0 3px white;
+        opacity: 0.9;
+      }
+      20% {
+        text-shadow: 0 0 6px white, 0 0 12px white;
+        opacity: 1;
+      }
+      30% {
+        text-shadow: 0 0 2px white, 0 0 5px white;
+        opacity: 0.6;
+      }
+      40% {
+        text-shadow: 0 0 8px white, 0 0 15px white;
+        opacity: 1;
       }
       50% {
-        text-shadow:
-          0 0 2px white,
-          0 0 6px white,
-          0 0 10px white;
+        text-shadow: 0 0 2px white, 0 0 6px white;
+        opacity: 0.4;
       }
       60% {
-        text-shadow:
-          0 0 8px white,
-          0 0 20px white,
-          0 0 25px white;
+        text-shadow: 0 0 10px white, 0 0 20px white, 0 0 30px white;
+        opacity: 1;
       }
       70% {
-        text-shadow:
-          0 0 3px white,
-          0 0 7px white,
-          0 0 10px white;
+        text-shadow: 0 0 4px white, 0 0 8px white;
+        opacity: 0.5;
+      }
+      80% {
+        text-shadow: 0 0 12px white, 0 0 25px white, 0 0 35px white;
+        opacity: 1;
+      }
+      90% {
+        text-shadow: 0 0 20px white, 0 0 40px white, 0 0 60px white;
+        opacity: 1;
+      }
+      100% {
+        text-shadow: 0 0 10px white, 0 0 20px white;
+        opacity: 1;
       }
     }
   </style>
