@@ -3,8 +3,10 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>ELENA 💖</title>
+  <title>GLITCH ELENA</title>
   <style>
+    @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@700&display=swap');
+
     * {
       margin: 0;
       padding: 0;
@@ -13,60 +15,72 @@
 
     body {
       height: 100vh;
-      background: linear-gradient(270deg, #000000, #1f1f1f, #000000, #1f1f1f);
-      background-size: 600% 600%;
-      animation: backgroundFlow 10s ease infinite;
+      background: black;
+      color: white;
       display: flex;
       justify-content: center;
       align-items: center;
       overflow: hidden;
-      font-family: 'Segoe UI', sans-serif;
+      font-family: 'Orbitron', sans-serif;
     }
 
-    h1 {
-      display: flex;
-      gap: 20px;
-      font-size: 12vw;
-      font-weight: bold;
+    .glitch {
+      font-size: 10vw;
+      position: relative;
       color: white;
-      letter-spacing: 0.2em;
+      animation: flicker 1.5s infinite;
     }
 
-    h1 span {
-      display: inline-block;
-      animation: glowBounce 1.5s ease-in-out infinite, colorFlash 5s linear infinite;
-      text-shadow: 0 0 10px #fff, 0 0 20px #0ff, 0 0 40px #0ff;
+    .glitch::before,
+    .glitch::after {
+      content: "ELENA";
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 100%;
+      overflow: hidden;
+      color: white;
+      background: black;
+      clip: rect(0, 900px, 0, 0);
     }
 
-    h1 span:nth-child(1) { animation-delay: 0s; }
-    h1 span:nth-child(2) { animation-delay: 0.2s; }
-    h1 span:nth-child(3) { animation-delay: 0.4s; }
-    h1 span:nth-child(4) { animation-delay: 0.6s; }
-    h1 span:nth-child(5) { animation-delay: 0.8s; }
-
-    @keyframes glowBounce {
-      0%, 100% { transform: translateY(0) scale(1); }
-      50% { transform: translateY(-20px) scale(1.1); }
+    .glitch::before {
+      left: 2px;
+      text-shadow: -2px 0 red;
+      animation: glitchTop 2s infinite linear alternate-reverse;
     }
 
-    @keyframes colorFlash {
-      0% { color: #ff007f; text-shadow: 0 0 20px #ff007f; }
-      25% { color: #00ffe1; text-shadow: 0 0 20px #00ffe1; }
-      50% { color: #00ff0a; text-shadow: 0 0 20px #00ff0a; }
-      75% { color: #ffcc00; text-shadow: 0 0 20px #ffcc00; }
-      100% { color: #ff007f; text-shadow: 0 0 20px #ff007f; }
+    .glitch::after {
+      left: -2px;
+      text-shadow: -2px 0 cyan;
+      animation: glitchBottom 1.8s infinite linear alternate-reverse;
     }
 
-    @keyframes backgroundFlow {
-      0% { background-position: 0% 50%; }
-      50% { background-position: 100% 50%; }
-      100% { background-position: 0% 50%; }
+    @keyframes flicker {
+      0% { opacity: 1; }
+      50% { opacity: 0.8; transform: scale(1.01); }
+      80% { opacity: 1; }
+      100% { opacity: 0.95; }
+    }
+
+    @keyframes glitchTop {
+      0% { clip: rect(0, 9999px, 0, 0); }
+      10% { clip: rect(10px, 9999px, 50px, 0); }
+      20% { clip: rect(85px, 9999px, 90px, 0); }
+      30% { clip: rect(50px, 9999px, 55px, 0); }
+      100% { clip: rect(0, 9999px, 0, 0); }
+    }
+
+    @keyframes glitchBottom {
+      0% { clip: rect(0, 9999px, 0, 0); }
+      10% { clip: rect(60px, 9999px, 100px, 0); }
+      20% { clip: rect(20px, 9999px, 40px, 0); }
+      30% { clip: rect(70px, 9999px, 80px, 0); }
+      100% { clip: rect(0, 9999px, 0, 0); }
     }
   </style>
 </head>
 <body>
-  <h1>
-    <span>E</span><span>L</span><span>E</span><span>N</span><span>A</span>
-  </h1>
+  <div class="glitch">ELENA</div>
 </body>
 </html>
