@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Elena - Possession Sequence</title>
+  <title>Elena - Final Phase</title>
   <style>
     @font-face {
       font-family: "MadeByBears";
@@ -27,10 +27,10 @@
       -webkit-text-stroke: 2px white;
       text-shadow: 0 0 5px white, 0 0 10px white, 0 0 15px white;
       letter-spacing: 5px;
-      animation: hauntingSequence 20s ease-in-out forwards;
+      animation: hauntedExplosion 20s ease-in-out forwards;
     }
 
-    @keyframes hauntingSequence {
+    @keyframes hauntedExplosion {
       /* 0s–5s: soft flicker */
       0% {
         opacity: 1;
@@ -77,29 +77,59 @@
         text-shadow: 0 0 20px white, 0 0 35px white;
       }
 
-      /* 13s–20s: flash consumes it */
+      /* 13s–17s: flash intensifies */
       70% {
         opacity: 1;
-        text-shadow: 0 0 30px white, 0 0 60px white, 0 0 80px white;
+        text-shadow: 0 0 40px white, 0 0 80px white, 0 0 100px white;
       }
       75% {
-        opacity: 0.8;
-        text-shadow: 0 0 50px white, 0 0 100px white;
+        opacity: 1;
+        text-shadow: 0 0 80px white, 0 0 120px white;
       }
       80% {
         opacity: 1;
-        text-shadow: 0 0 80px white, 0 0 150px white;
+        text-shadow: 0 0 120px white, 0 0 160px white;
       }
+
+      /* 17s–19s: EPILEPTIC STROBE FLASHING */
       85% {
+        opacity: 0;
+        text-shadow: 0 0 250px white;
+      }
+      86% {
         opacity: 1;
-        text-shadow: 0 0 100px white, 0 0 200px white;
+        text-shadow: 0 0 300px white;
+      }
+      87% {
+        opacity: 0;
+        text-shadow: 0 0 250px white;
+      }
+      88% {
+        opacity: 1;
+        text-shadow: 0 0 350px white;
+      }
+      89% {
+        opacity: 0;
+        text-shadow: 0 0 300px white;
       }
       90% {
         opacity: 1;
-        text-shadow: 0 0 150px white, 0 0 300px white;
+        text-shadow: 0 0 400px white;
+      }
+      91% {
+        opacity: 0;
+        text-shadow: 0 0 200px white;
+      }
+      92% {
+        opacity: 1;
+        text-shadow: 0 0 500px white;
+      }
+      93% {
+        opacity: 0.3;
+        text-shadow: 0 0 200px white;
       }
 
-      /* Final moment: sudden stop */
+      /* 20s: calm silence */
       100% {
         opacity: 1;
         text-shadow: 0 0 5px white, 0 0 10px white, 0 0 15px white;
