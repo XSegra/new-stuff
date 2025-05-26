@@ -3,51 +3,58 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>ELENA ✨</title>
+  <title>ELENA 💖</title>
   <style>
     * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
     }
+
     body {
       height: 100vh;
-      background: linear-gradient(270deg, #ff0080, #7928ca, #2afadf, #00ff87, #ffcc70);
-      background-size: 1000% 1000%;
-      animation: backgroundFlow 15s ease infinite;
+      background: linear-gradient(270deg, #000000, #1f1f1f, #000000, #1f1f1f);
+      background-size: 600% 600%;
+      animation: backgroundFlow 10s ease infinite;
       display: flex;
       justify-content: center;
       align-items: center;
       overflow: hidden;
+      font-family: 'Segoe UI', sans-serif;
     }
 
     h1 {
-      font-size: 10vw;
-      font-family: 'Segoe UI', sans-serif;
-      font-weight: 900;
-      letter-spacing: 15px;
-      color: white;
       display: flex;
-      gap: 10px;
+      gap: 20px;
+      font-size: 12vw;
+      font-weight: bold;
+      color: white;
+      letter-spacing: 0.2em;
     }
 
     h1 span {
-      animation: colorShift 2s infinite alternate;
       display: inline-block;
+      animation: glowBounce 1.5s ease-in-out infinite, colorFlash 5s linear infinite;
+      text-shadow: 0 0 10px #fff, 0 0 20px #0ff, 0 0 40px #0ff;
     }
 
     h1 span:nth-child(1) { animation-delay: 0s; }
-    h1 span:nth-child(2) { animation-delay: 0.3s; }
-    h1 span:nth-child(3) { animation-delay: 0.6s; }
-    h1 span:nth-child(4) { animation-delay: 0.9s; }
-    h1 span:nth-child(5) { animation-delay: 1.2s; }
+    h1 span:nth-child(2) { animation-delay: 0.2s; }
+    h1 span:nth-child(3) { animation-delay: 0.4s; }
+    h1 span:nth-child(4) { animation-delay: 0.6s; }
+    h1 span:nth-child(5) { animation-delay: 0.8s; }
 
-    @keyframes colorShift {
-      0%   { color: #ff0080; transform: scale(1); }
-      25%  { color: #2afadf; transform: scale(1.1); }
-      50%  { color: #00ff87; transform: scale(1); }
-      75%  { color: #ffcc70; transform: scale(1.1); }
-      100% { color: #7928ca; transform: scale(1); }
+    @keyframes glowBounce {
+      0%, 100% { transform: translateY(0) scale(1); }
+      50% { transform: translateY(-20px) scale(1.1); }
+    }
+
+    @keyframes colorFlash {
+      0% { color: #ff007f; text-shadow: 0 0 20px #ff007f; }
+      25% { color: #00ffe1; text-shadow: 0 0 20px #00ffe1; }
+      50% { color: #00ff0a; text-shadow: 0 0 20px #00ff0a; }
+      75% { color: #ffcc00; text-shadow: 0 0 20px #ffcc00; }
+      100% { color: #ff007f; text-shadow: 0 0 20px #ff007f; }
     }
 
     @keyframes backgroundFlow {
