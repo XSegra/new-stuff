@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Elena - Final Meltdown</title>
+  <title>Elena - Savage Mode</title>
   <style>
     @font-face {
       font-family: "MadeByBears";
@@ -18,6 +18,7 @@
       justify-content: center;
       align-items: center;
       overflow: hidden;
+      animation: screenShake 20s ease-in-out 10s forwards;
     }
 
     .elena {
@@ -25,66 +26,73 @@
       font-size: 120px;
       color: black;
       -webkit-text-stroke: 2px white;
-      text-shadow: 0 0 5px white, 0 0 10px white, 0 0 15px white;
       letter-spacing: 5px;
-      animation: fullMeltdown 25s ease-in-out forwards;
+      text-shadow: 0 0 5px white, 0 0 10px white, 0 0 15px white;
+      animation: glitchMeltdown 30s linear forwards;
     }
 
-    @keyframes fullMeltdown {
-      /* Calm to buildup: 0–13s */
+    @keyframes glitchMeltdown {
       0%, 10% {
         opacity: 1;
         text-shadow: 0 0 3px white, 0 0 6px white;
+        filter: none;
+        transform: none;
+        clip-path: inset(0);
       }
-      20% {
-        opacity: 0.7;
-        text-shadow: 0 0 2px white;
-      }
-      30% {
-        opacity: 1;
-        text-shadow: 0 0 6px white, 0 0 12px white;
-      }
-      40% {
+
+      20%, 30%, 40% {
         opacity: 0.6;
-        text-shadow: 0 0 3px white;
-      }
-      50% {
-        opacity: 1;
         text-shadow: 0 0 10px white, 0 0 20px white;
       }
-      60% {
-        opacity: 0.3;
-        text-shadow: 0 0 15px white, 0 0 25px white;
-      }
-      70% {
-        opacity: 1;
-        text-shadow: 0 0 20px white, 0 0 40px white;
-      }
 
-      /* ⚡ 15s–25s: 10 seconds of epileptic flashing */
-      72%, 73%, 74%, 75%, 76%, 77%, 78%, 79%,
-      80%, 81%, 82%, 83%, 84%, 85%, 86%, 87%, 88%, 89%,
-      90%, 91%, 92%, 93%, 94%, 95%, 96%, 97%, 98%, 99% {
+      /* 50%–90%: Flashing & glitching */
+      50%, 52%, 54%, 56%, 58%, 60%, 62%, 64%, 66%, 68%, 70%, 72%, 74%, 76%, 78%, 80%, 82%, 84%, 86%, 88%, 90% {
         opacity: 0;
-        text-shadow: 0 0 300px white, 0 0 400px white;
+        text-shadow: 0 0 300px white;
+        filter: hue-rotate(30deg) contrast(250%);
+        clip-path: inset(10% 0 5% 0);
+        transform: translateX(3px);
       }
 
-      72.5%, 73.5%, 74.5%, 75.5%, 76.5%, 77.5%, 78.5%, 79.5%,
-      80.5%, 81.5%, 82.5%, 83.5%, 84.5%, 85.5%, 86.5%, 87.5%, 88.5%, 89.5%,
-      90.5%, 91.5%, 92.5%, 93.5%, 94.5%, 95.5%, 96.5%, 97.5%, 98.5%, 99.5% {
+      51%, 53%, 55%, 57%, 59%, 61%, 63%, 65%, 67%, 69%, 71%, 73%, 75%, 77%, 79%, 81%, 83%, 85%, 87%, 89% {
         opacity: 1;
-        text-shadow: 0 0 500px white, 0 0 700px white;
+        text-shadow: 0 0 600px white;
+        filter: hue-rotate(-30deg) contrast(300%);
+        clip-path: inset(0 10% 10% 0);
+        transform: translateX(-3px);
       }
 
-      /* Instant calm at 100% */
       100% {
         opacity: 1;
-        text-shadow: 0 0 5px white, 0 0 10px white, 0 0 15px white;
+        text-shadow: 0 0 5px white, 0 0 10px white;
+        filter: none;
+        transform: none;
+        clip-path: inset(0);
       }
+    }
+
+    @keyframes screenShake {
+      0% { transform: translate(0, 0); }
+      2% { transform: translate(2px, -2px); }
+      4% { transform: translate(-3px, 3px); }
+      6% { transform: translate(4px, -1px); }
+      8% { transform: translate(-2px, 2px); }
+      10% { transform: translate(3px, -3px); }
+      100% { transform: translate(0, 0); }
     }
   </style>
 </head>
 <body>
+  <audio id="glitchAudio" src="glitch.mp3"></audio>
   <div class="elena">Elena</div>
+
+  <script>
+    // Delay audio start to match glitch phase
+    setTimeout(() => {
+      const audio = document.getElementById('glitchAudio');
+      audio.volume = 0.8;
+      audio.play();
+    }, 10000); // starts at 10s
+  </script>
 </body>
 </html>
