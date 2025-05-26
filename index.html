@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Elena - Phase 2</title>
+  <title>Elena - Possession Sequence</title>
   <style>
     @font-face {
       font-family: "MadeByBears";
@@ -25,58 +25,84 @@
       font-size: 120px;
       color: black;
       -webkit-text-stroke: 2px white;
-      text-shadow:
-        0 0 5px white,
-        0 0 10px white,
-        0 0 15px white;
+      text-shadow: 0 0 5px white, 0 0 10px white, 0 0 15px white;
       letter-spacing: 5px;
-      animation: hauntedFlicker 7s ease-in-out forwards;
+      animation: hauntingSequence 20s ease-in-out forwards;
     }
 
-    @keyframes hauntedFlicker {
+    @keyframes hauntingSequence {
+      /* 0s–5s: soft flicker */
       0% {
-        text-shadow: 0 0 3px white, 0 0 6px white, 0 0 9px white;
         opacity: 1;
+        text-shadow: 0 0 3px white, 0 0 6px white;
       }
       10% {
-        text-shadow: 0 0 1px white, 0 0 3px white;
-        opacity: 0.9;
+        opacity: 0.8;
+        text-shadow: 0 0 2px white, 0 0 4px white;
       }
       20% {
-        text-shadow: 0 0 6px white, 0 0 12px white;
         opacity: 1;
+        text-shadow: 0 0 5px white, 0 0 10px white;
+      }
+
+      /* 5s–10s: faster flicker */
+      25% {
+        opacity: 0.6;
+        text-shadow: 0 0 3px white;
       }
       30% {
-        text-shadow: 0 0 2px white, 0 0 5px white;
-        opacity: 0.6;
+        opacity: 1;
+        text-shadow: 0 0 8px white, 0 0 12px white;
+      }
+      35% {
+        opacity: 0.5;
+        text-shadow: 0 0 2px white;
       }
       40% {
-        text-shadow: 0 0 8px white, 0 0 15px white;
         opacity: 1;
+        text-shadow: 0 0 10px white, 0 0 20px white;
       }
+
+      /* 10s–13s: chaotic flicker */
       50% {
-        text-shadow: 0 0 2px white, 0 0 6px white;
         opacity: 0.4;
+        text-shadow: 0 0 15px white, 0 0 25px white;
+      }
+      55% {
+        opacity: 1;
+        text-shadow: 0 0 5px white;
       }
       60% {
-        text-shadow: 0 0 10px white, 0 0 20px white, 0 0 30px white;
-        opacity: 1;
+        opacity: 0.3;
+        text-shadow: 0 0 20px white, 0 0 35px white;
       }
+
+      /* 13s–20s: flash consumes it */
       70% {
-        text-shadow: 0 0 4px white, 0 0 8px white;
-        opacity: 0.5;
+        opacity: 1;
+        text-shadow: 0 0 30px white, 0 0 60px white, 0 0 80px white;
+      }
+      75% {
+        opacity: 0.8;
+        text-shadow: 0 0 50px white, 0 0 100px white;
       }
       80% {
-        text-shadow: 0 0 12px white, 0 0 25px white, 0 0 35px white;
         opacity: 1;
+        text-shadow: 0 0 80px white, 0 0 150px white;
+      }
+      85% {
+        opacity: 1;
+        text-shadow: 0 0 100px white, 0 0 200px white;
       }
       90% {
-        text-shadow: 0 0 20px white, 0 0 40px white, 0 0 60px white;
         opacity: 1;
+        text-shadow: 0 0 150px white, 0 0 300px white;
       }
+
+      /* Final moment: sudden stop */
       100% {
-        text-shadow: 0 0 10px white, 0 0 20px white;
         opacity: 1;
+        text-shadow: 0 0 5px white, 0 0 10px white, 0 0 15px white;
       }
     }
   </style>
